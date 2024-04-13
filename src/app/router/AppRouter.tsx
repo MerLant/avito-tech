@@ -1,4 +1,4 @@
-import { FilmPage, LandingPage, NotFoundPage } from "src/pages";
+import { MoviePage, LandingPage, NotFoundPage } from "src/pages";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { PATHS } from "./paths";
 
@@ -7,7 +7,7 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path={PATHS.HOME} element={<LandingPage />} />
-        <Route path={PATHS.FILM + "/:filmId"} element={<FilmPage />} />
+        <Route path={PATHS.FILM + "/:filmId"} element={<MoviePage />} />
 
         <Route path={PATHS.NOTFOUND} element={<NotFoundPage />} />
         <Route path="*" element={<Navigate to={PATHS.NOTFOUND} />} />

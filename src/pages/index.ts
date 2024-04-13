@@ -1,5 +1,5 @@
-import FilmPage from "./film";
+import MoviePage from "./movie";
 import LandingPage from "./landing";
 import NotFoundPage from "./notfound";
 
-export { FilmPage, LandingPage, NotFoundPage };
+export { MoviePage, LandingPage, NotFoundPage };

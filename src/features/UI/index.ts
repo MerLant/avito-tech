@@ -1,3 +1,4 @@
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import ColorModeSwitcher from "./ColorModeSwitcher/ColorModeSwitcher";
+import MovieList from "./MovieList/MovieList";
 
-export { ColorModeSwitcher };
+export { ColorModeSwitcher, MovieList };

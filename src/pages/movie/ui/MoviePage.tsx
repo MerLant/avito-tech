@@ -1,4 +1,4 @@
-const FilmPage = () => {
+const MoviePage = () => {
   return (
     <div>
       <h1>Film Page</h1>
@@ -6,4 +6,4 @@ const FilmPage = () => {
   );
 };
 
-export default FilmPage;
+export default MoviePage;
