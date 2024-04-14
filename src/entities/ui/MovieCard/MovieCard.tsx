@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { MovieCardProps } from "src/entities/models/IMovieCard";
+import { MovieCardProps } from "src/entities/models/Movie";
 import { CircleRating } from "src/shared/ui";
 import { NavLink } from "react-router-dom";
 import { PATHS } from "src/app/router/paths";
@@ -27,7 +27,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
 
   const handleToggle = () => setShow(!show);
   return (
-    <LinkBox>
+    <LinkBox w="100%">
       <Card w="100%" p="2" borderRadius="25">
         <Flex direction={{ base: "column", md: "row" }} align="center">
           <Box flexShrink={0}>
@@ -72,23 +72,26 @@ const MovieCard = ({ movie }: MovieCardProps) => {
               <Divider />
               <HStack>
                 <Tag>Год выхода:</Tag>
-                <Text>{movie.year}</Text>
+                <Text>{movie.year || "-"}</Text>
               </HStack>
               <Divider />
               <HStack>
                 <Tag>Страна:</Tag>
                 <Text>
-                  {movie.countries.map((country) => country.name).join(", ")}
+                  {movie.countries.map((country) => country.name).join(", ") ||
+                    "-"}
                 </Text>
               </HStack>
               <Divider />
               <>
                 <Collapse startingHeight={40} in={show}>
-                  <Tag>Описание:</Tag> {movie.description}
+                  <Tag>Описание:</Tag> {movie.description || "-"}
                 </Collapse>
-                <Button size="sm" onClick={handleToggle} mt="1rem">
-                  Показать {show ? "меньше" : "больше"}
-                </Button>
+                {movie.description && (
+                  <Button size="sm" onClick={handleToggle} mt="1rem">
+                    Показать {show ? "меньше" : "больше"}
+                  </Button>
+                )}
               </>
             </VStack>
           </Box>

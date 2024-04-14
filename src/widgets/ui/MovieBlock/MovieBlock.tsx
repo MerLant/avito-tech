@@ -1,12 +1,10 @@
 import {
   Box,
-  Button,
   FormControl,
   FormLabel,
   Heading,
   HStack,
   Select,
-  Text,
 } from "@chakra-ui/react";
 import { useUnit } from "effector-react";
 import { useEffect, useState } from "react";
@@ -84,7 +82,6 @@ const MovieBlock = () => {
   }, [filters, page, limit, navigate]);
 
   const handleApplyFilters = (newFilters: FilterParams) => {
-    console.log(newFilters);
     setFilters(newFilters);
   };
 

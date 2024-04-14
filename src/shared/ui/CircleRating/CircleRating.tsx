@@ -33,7 +33,7 @@ const CircleRating = ({ rating, children }: CircleRatingProps) => {
   if (!rating) {
     return (
       <VStack mb="5px">
-        <CircularProgress value={0} color="gray.400">
+        <CircularProgress value={0} color="gray.400" trackColor={bgColor}>
           <CircularProgressLabel>-</CircularProgressLabel>
         </CircularProgress>
         <Tag>{children}</Tag>

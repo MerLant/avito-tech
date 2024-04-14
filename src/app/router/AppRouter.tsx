@@ -9,7 +9,7 @@ const AppRouter = () => {
       <Header />
       <Routes>
         <Route path={PATHS.HOME} element={<LandingPage />} />
-        <Route path={PATHS.FILM + "/:filmId"} element={<MoviePage />} />
+        <Route path={PATHS.FILM + "/:movieId"} element={<MoviePage />} />
 
         <Route path={PATHS.NOTFOUND} element={<NotFoundPage />} />
         <Route path="*" element={<Navigate to={PATHS.NOTFOUND} />} />
