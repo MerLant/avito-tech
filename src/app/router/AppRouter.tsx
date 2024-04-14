@@ -1,10 +1,12 @@
 import { MoviePage, LandingPage, NotFoundPage } from "src/pages";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { PATHS } from "./paths";
+import { Header } from "src/widgets/ui";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path={PATHS.HOME} element={<LandingPage />} />
         <Route path={PATHS.FILM + "/:filmId"} element={<MoviePage />} />

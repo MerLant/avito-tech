@@ -1,5 +1,5 @@
 export enum PATHS {
   HOME = "/",
-  FILM = "/film",
+  FILM = "/movie",
   NOTFOUND = "/404",
 }

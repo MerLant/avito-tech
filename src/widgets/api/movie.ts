@@ -3,13 +3,30 @@ import { createEffect } from "effector";
 import { GetMoviesResponse } from "src/widgets/models/MovieModels";
 import { apiInstance } from "src/shared/api/base";
 
-export const getMoviesFx = createEffect(
+type GetMoviesFxParams = {
+  page?: number;
+  limit?: number;
+  sortField?: string[];
+  sortType?: string[];
+  year?: string[];
+  ratingKp?: string[];
+  ageRating?: string[];
+  countriesName?: string[];
+  selectFields?: string[];
+};
+
+export const getMoviesFx = createEffect<GetMoviesFxParams, GetMoviesResponse>(
   async ({
     page = 1,
     limit = 10,
+    year = [],
+    ratingKp = [],
+    ageRating = [],
+    countriesName = [],
     selectFields = [
       "id",
       "name",
+      "description",
       "year",
       "rating",
       "ageRating",
@@ -33,11 +50,23 @@ export const getMoviesFx = createEffect(
       },
     };
 
-    const response = await apiInstance.get<GetMoviesResponse>(`movie`, options);
+    if (year.length > 0) {
+      options.params.year = year.join(",");
+    }
+    if (ratingKp.length > 0) {
+      options.params["rating.kp"] = ratingKp.join(",");
+    }
+    if (ageRating.length > 0) {
+      options.params.ageRating = ageRating.join(",");
+    }
+    if (countriesName.length > 0 && countriesName[0] !== "") {
+      options.params["countries.name"] = countriesName.join(",");
+    }
 
-    getMoviesFx.finally.watch(() => {
-      cancelTokenSource.cancel("Operation canceled by the user.");
-    });
+    const response = await apiInstance.get<GetMoviesResponse>(
+      `/v1.4/movie`,
+      options,
+    );
 
     return response;
   },

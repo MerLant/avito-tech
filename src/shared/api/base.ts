@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-export const API_URL = "https://api.kinopoisk.dev/v1.4/";
+export const API_URL = "https://api.kinopoisk.dev/";
 
 class ApiInstance {
   private axios: AxiosInstance;

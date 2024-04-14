@@ -10,7 +10,6 @@ const initialMoviesState: GetMoviesResponse = {
   pages: 0,
 };
 
-// Создание стора с начальным состоянием
 const $moviesStore = createStore(initialMoviesState)
   .on(getMoviesFx.doneData, (state, response) => {
     return response;
